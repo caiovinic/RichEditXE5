@@ -508,39 +508,34 @@ end;
 
 { Ruler Indent Dragging }
 
-procedure TMainForm.RulerItemMouseDown(Sender: TObject; Button: TMouseButton;
-  Shift: TShiftState; X, Y: Integer);
+procedure TMainForm.RulerItemMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   FDragOfs := (TLabel(Sender).Width div 2);
   TLabel(Sender).Left := TLabel(Sender).Left+X-FDragOfs;
   FDragging := True;
 end;
 
-procedure TMainForm.RulerItemMouseMove(Sender: TObject; Shift: TShiftState;
-  X, Y: Integer);
+procedure TMainForm.RulerItemMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
 begin
   if FDragging then
     TLabel(Sender).Left :=  TLabel(Sender).Left+X-FDragOfs
 end;
 
-procedure TMainForm.FirstIndMouseUp(Sender: TObject; Button: TMouseButton;
-  Shift: TShiftState; X, Y: Integer);
+procedure TMainForm.FirstIndMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   FDragging := False;
   Editor.Paragraph.FirstIndent := Trunc((FirstInd.Left+FDragOfs-GutterWid) / RulerAdj);
   LeftIndMouseUp(Sender, Button, Shift, X, Y);
 end;
 
-procedure TMainForm.LeftIndMouseUp(Sender: TObject; Button: TMouseButton;
-  Shift: TShiftState; X, Y: Integer);
+procedure TMainForm.LeftIndMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   FDragging := False;
   Editor.Paragraph.LeftIndent := Trunc((LeftInd.Left+FDragOfs-GutterWid) / RulerAdj)-Editor.Paragraph.FirstIndent;
   SelectionChange(Sender);
 end;
 
-procedure TMainForm.RightIndMouseUp(Sender: TObject; Button: TMouseButton;
-  Shift: TShiftState; X, Y: Integer);
+procedure TMainForm.RightIndMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   FDragging := False;
   Editor.Paragraph.RightIndent := Trunc((Ruler.ClientWidth-RightInd.Left+FDragOfs-2) / RulerAdj)-2*GutterWid;
@@ -551,12 +546,12 @@ procedure TMainForm.UpdateCursorPos;
 var
   CharPos: TPoint;
 begin
-  CharPos.Y := SendMessage(Editor.Handle, EM_EXLINEFROMCHAR, 0,
-    Editor.SelStart);
-  CharPos.X := (Editor.SelStart -
-    SendMessage(Editor.Handle, EM_LINEINDEX, CharPos.Y, 0));
+  CharPos.Y := SendMessage(Editor.Handle, EM_EXLINEFROMCHAR, 0, Editor.SelStart);
+  CharPos.X := (Editor.SelStart - SendMessage(Editor.Handle, EM_LINEINDEX, CharPos.Y, 0));
+
   Inc(CharPos.Y);
   Inc(CharPos.X);
+
   StatusBar.Panels[0].Text := Format(sColRowInfo, [CharPos.Y, CharPos.X]);
 end;
 
@@ -568,7 +563,7 @@ begin
   Editor.SetFocus;
   { Check if we should load a file from the command line }
   if (ParamCount > 0) and FileExists(ParamStr(1)) then
-    PerformFileOpen(ParamStr(1));
+     PerformFileOpen(ParamStr(1));
 end;
 
 procedure TMainForm.WMDropFiles(var Msg: TWMDropFiles);
@@ -594,8 +589,10 @@ end;
 
 procedure TMainForm.SetModified(Value: Boolean);
 begin
-  if Value then StatusBar.Panels[1].Text := sModified
-  else StatusBar.Panels[1].Text := '';
+  if Value then
+     StatusBar.Panels[1].Text := sModified
+  else
+     StatusBar.Panels[1].Text := '';
 end;
 
 procedure TMainForm.SwitchLanguage(Sender: TObject);
@@ -607,7 +604,9 @@ begin
   begin
     Name := FontName.Text;
     Size := StrToInt(FontSize.Text);
+
     ReinitializeForms;
+
     LanguageEnglish.Checked   := LanguageEnglish  = Sender;
     LanguageFrench.Checked    := LanguageFrench   = Sender;
     LanguageGerman.Checked    := LanguageGerman   = Sender;
@@ -624,16 +623,19 @@ begin
 end;
 
 procedure TMainForm.ActionList2Update(Action: TBasicAction;
-  var Handled: Boolean);
+var
+  Handled: Boolean);
 begin
  { Update the status of the edit commands }
   EditCutCmd.Enabled := Editor.SelLength > 0;
   EditCopyCmd.Enabled := EditCutCmd.Enabled;
+
   if Editor.HandleAllocated then
   begin
     EditUndoCmd.Enabled := Editor.Perform(EM_CANUNDO, 0, 0) <> 0;
     EditPasteCmd.Enabled := Editor.Perform(EM_CANPASTE, 0, 0) <> 0;
   end;
+
 end;
 
 end.
