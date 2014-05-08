@@ -407,8 +407,10 @@ end;
 procedure TMainForm.SelectFont(Sender: TObject);
 begin
   FontDialog1.Font.Assign(Editor.SelAttributes);
+
   if FontDialog1.Execute then
-    CurrText.Assign(FontDialog1.Font);
+     CurrText.Assign(FontDialog1.Font);
+
   SelectionChange(Self);
   Editor.SetFocus;
 end;
@@ -431,52 +433,66 @@ end;
 
 procedure TMainForm.BoldButtonClick(Sender: TObject);
 begin
-  if FUpdating then Exit;
+  if FUpdating then
+     Exit;
+
   if BoldButton.Down then
-    CurrText.Style := CurrText.Style + [fsBold]
+     CurrText.Style := CurrText.Style + [fsBold]
   else
-    CurrText.Style := CurrText.Style - [fsBold];
+     CurrText.Style := CurrText.Style - [fsBold];
 end;
 
 procedure TMainForm.ItalicButtonClick(Sender: TObject);
 begin
-  if FUpdating then Exit;
+  if FUpdating then
+     Exit;
+
   if ItalicButton.Down then
-    CurrText.Style := CurrText.Style + [fsItalic]
+     CurrText.Style := CurrText.Style + [fsItalic]
   else
-    CurrText.Style := CurrText.Style - [fsItalic];
+     CurrText.Style := CurrText.Style - [fsItalic];
 end;
 
 procedure TMainForm.FontSizeChange(Sender: TObject);
 begin
-  if FUpdating then Exit;
+  if FUpdating then
+     Exit;
+
   CurrText.Size := StrToInt(FontSize.Text);
 end;
 
 procedure TMainForm.AlignButtonClick(Sender: TObject);
 begin
-  if FUpdating then Exit;
+  if FUpdating then
+     Exit;
+
   Editor.Paragraph.Alignment := TAlignment(TControl(Sender).Tag);
 end;
 
 procedure TMainForm.FontNameChange(Sender: TObject);
 begin
-  if FUpdating then Exit;
+  if FUpdating then
+     Exit;
+
   CurrText.Name := FontName.Items[FontName.ItemIndex];
 end;
 
 procedure TMainForm.UnderlineButtonClick(Sender: TObject);
 begin
-  if FUpdating then Exit;
+  if FUpdating then
+     Exit;
+
   if UnderlineButton.Down then
-    CurrText.Style := CurrText.Style + [fsUnderline]
+     CurrText.Style := CurrText.Style + [fsUnderline]
   else
-    CurrText.Style := CurrText.Style - [fsUnderline];
+     CurrText.Style := CurrText.Style - [fsUnderline];
 end;
 
 procedure TMainForm.BulletsButtonClick(Sender: TObject);
 begin
-  if FUpdating then Exit;
+  if FUpdating then
+     Exit;
+
   Editor.Paragraph.Numbering := TNumberingStyle(BulletsButton.Down);
 end;
 
@@ -487,6 +503,7 @@ begin
   except
     CanClose := False;
   end;
+
 end;
 
 { Ruler Indent Dragging }

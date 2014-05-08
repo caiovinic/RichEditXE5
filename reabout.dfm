@@ -430,9 +430,9 @@ object AboutBox: TAboutBox
   object Label2: TLabel
     Left = 81
     Top = 45
-    Width = 183
+    Width = 237
     Height = 13
-    Caption = 'Copyright © 1998 Embarcadero Technologies Inc.'
+    Caption = 'Copyright '#169' 1998 Embarcadero Technologies Inc.'
   end
   object Label3: TLabel
     Left = 81

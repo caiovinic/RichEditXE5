@@ -48,6 +48,7 @@ begin
   GlobalMemoryStatus(MS);
   PhysMem.Caption := FormatFloat('#,###" KB"', MS.dwTotalPhys / 1024);
   FreeRes.Caption := Format('%d %%', [MS.dwMemoryLoad]);
+
 end;
 
 end.
