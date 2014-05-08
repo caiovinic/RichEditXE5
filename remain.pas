@@ -131,6 +131,7 @@ type
     procedure SwitchLanguage(Sender: TObject);
     procedure ActionList2Update(Action: TBasicAction;
       var Handled: Boolean);
+    procedure StandardToolBarClick(Sender: TObject);
   private
     FFileName: string;
     FUpdating: Boolean;
@@ -146,6 +147,7 @@ type
     procedure WMDropFiles(var Msg: TWMDropFiles); message WM_DROPFILES;
     procedure PerformFileOpen(const AFileName: string);
     procedure SetModified(Value: Boolean);
+    procedure SabeDeNadaInocente;
   end;
 
 var
@@ -306,6 +308,11 @@ begin
     StatusBar.SimpleText := Application.Hint;
   end
   else StatusBar.SimplePanel := False;
+end;
+
+procedure TMainForm.StandardToolBarClick(Sender: TObject);
+begin
+  SabeDeNadaInocente;
 end;
 
 procedure TMainForm.FileNew(Sender: TObject);
@@ -580,6 +587,11 @@ begin
   finally
     DragFinish(Msg.Drop);
   end;
+end;
+
+procedure TMainForm.SabeDeNadaInocente;
+begin
+  ShowMessage('Sabe de nada, inocente!');
 end;
 
 procedure TMainForm.RichEditChange(Sender: TObject);

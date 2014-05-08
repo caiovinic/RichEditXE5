@@ -185,6 +185,7 @@ object MainForm: TMainForm
     ShowHint = True
     TabOrder = 3
     Wrapable = False
+    OnClick = StandardToolBarClick
     ExplicitWidth = 635
     object ToolButton1: TToolButton
       Left = 4
