@@ -187,11 +187,13 @@ begin
     BulletsButton.Down := Boolean(Numbering);
     FontSize.Text := IntToStr(Editor.SelAttributes.Size);
     FontName.Text := Editor.SelAttributes.Name;
+
     case Ord(Alignment) of
       0: LeftAlign.Down := True;
       1: RightAlign.Down := True;
       2: CenterAlign.Down := True;
     end;
+
     UpdateCursorPos;
   finally
     FUpdating := False;
@@ -350,8 +352,9 @@ begin
   if SaveDialog.Execute then
   begin
     if FileExists(SaveDialog.FileName) then
-      if MessageDlg(Format(sOverWrite, [SaveDialog.FileName]),
-        mtConfirmation, mbYesNoCancel, 0) <> idYes then Exit;
+       if MessageDlg(Format(sOverWrite, [SaveDialog.FileName]),
+          mtConfirmation, mbYesNoCancel, 0) <> idYes then Exit;
+
     Editor.Lines.SaveToFile(SaveDialog.FileName);
     SetFileName(SaveDialog.FileName);
     Editor.Modified := False;
@@ -372,8 +375,8 @@ end;
 
 procedure TMainForm.EditUndo(Sender: TObject);
 begin
-  with Editor do
-    if HandleAllocated then SendMessage(Handle, EM_UNDO, 0, 0);
+    if Editor.HandleAllocated then SendMessage(Handle, EM_UNDO, 0, 0);
+
 end;
 
 procedure TMainForm.EditCut(Sender: TObject);

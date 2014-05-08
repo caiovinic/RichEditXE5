@@ -3,8 +3,8 @@ object MainForm: TMainForm
   Top = 107
   ActiveControl = Editor
   Caption = 'Rich Edit Control Demo'
-  ClientHeight = 423
-  ClientWidth = 635
+  ClientHeight = 558
+  ClientWidth = 945
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -49,7 +49,7 @@ object MainForm: TMainForm
   object Ruler: TPanel
     Left = 0
     Top = 30
-    Width = 635
+    Width = 945
     Height = 26
     Align = alTop
     Alignment = taLeftJustify
@@ -63,7 +63,7 @@ object MainForm: TMainForm
     ParentFont = False
     TabOrder = 0
     OnResize = RulerResize
-    ExplicitWidth = 609
+    ExplicitWidth = 635
     object FirstInd: TLabel
       Left = 2
       Top = 2
@@ -127,7 +127,7 @@ object MainForm: TMainForm
     object Bevel1: TBevel
       Left = 0
       Top = 0
-      Width = 635
+      Width = 945
       Height = 2
       Align = alTop
       Shape = bsTopLine
@@ -137,8 +137,8 @@ object MainForm: TMainForm
   object Editor: TRichEdit
     Left = 0
     Top = 56
-    Width = 635
-    Height = 348
+    Width = 945
+    Height = 483
     Align = alClient
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
@@ -150,13 +150,13 @@ object MainForm: TMainForm
     TabOrder = 1
     OnChange = RichEditChange
     OnSelectionChange = SelectionChange
-    ExplicitWidth = 609
-    ExplicitHeight = 76
+    ExplicitWidth = 635
+    ExplicitHeight = 348
   end
   object StatusBar: TStatusBar
     Left = 0
-    Top = 404
-    Width = 635
+    Top = 539
+    Width = 945
     Height = 19
     Panels = <
       item
@@ -169,13 +169,13 @@ object MainForm: TMainForm
       item
         Width = 50
       end>
-    ExplicitTop = 132
-    ExplicitWidth = 609
+    ExplicitTop = 404
+    ExplicitWidth = 635
   end
   object StandardToolBar: TToolBar
     Left = 0
     Top = 0
-    Width = 635
+    Width = 945
     Height = 30
     AutoSize = True
     BorderWidth = 2
@@ -185,7 +185,7 @@ object MainForm: TMainForm
     ShowHint = True
     TabOrder = 3
     Wrapable = False
-    ExplicitWidth = 609
+    ExplicitWidth = 635
     object ToolButton1: TToolButton
       Left = 4
       Top = 0
@@ -262,7 +262,7 @@ object MainForm: TMainForm
     object FontSize: TEdit
       Left = 385
       Top = 0
-      Width = 42
+      Width = 58
       Height = 22
       Hint = 'Font Size|Select font size'
       TabOrder = 1
@@ -270,7 +270,7 @@ object MainForm: TMainForm
       OnChange = FontSizeChange
     end
     object UpDown1: TUpDown
-      Left = 427
+      Left = 443
       Top = 0
       Width = 15
       Height = 22
@@ -279,7 +279,7 @@ object MainForm: TMainForm
       TabOrder = 2
     end
     object ToolButton2: TToolButton
-      Left = 442
+      Left = 458
       Top = 0
       Width = 8
       Caption = 'ToolButton2'
@@ -287,7 +287,7 @@ object MainForm: TMainForm
       Style = tbsSeparator
     end
     object BoldButton: TToolButton
-      Left = 450
+      Left = 466
       Top = 0
       Hint = 'Bold'
       ImageIndex = 8
@@ -295,7 +295,7 @@ object MainForm: TMainForm
       OnClick = BoldButtonClick
     end
     object ItalicButton: TToolButton
-      Left = 473
+      Left = 489
       Top = 0
       Hint = 'Italic'
       ImageIndex = 9
@@ -303,7 +303,7 @@ object MainForm: TMainForm
       OnClick = ItalicButtonClick
     end
     object UnderlineButton: TToolButton
-      Left = 496
+      Left = 512
       Top = 0
       Hint = 'Underline'
       ImageIndex = 10
@@ -311,14 +311,14 @@ object MainForm: TMainForm
       OnClick = UnderlineButtonClick
     end
     object ToolButton16: TToolButton
-      Left = 519
+      Left = 535
       Top = 0
       Width = 8
       ImageIndex = 12
       Style = tbsDivider
     end
     object LeftAlign: TToolButton
-      Left = 527
+      Left = 543
       Top = 0
       Hint = 'Align Left'
       Grouped = True
@@ -328,7 +328,7 @@ object MainForm: TMainForm
     end
     object CenterAlign: TToolButton
       Tag = 2
-      Left = 550
+      Left = 566
       Top = 0
       Hint = 'Center'
       Grouped = True
@@ -338,7 +338,7 @@ object MainForm: TMainForm
     end
     object RightAlign: TToolButton
       Tag = 1
-      Left = 573
+      Left = 589
       Top = 0
       Hint = 'Align Right'
       Grouped = True
@@ -347,14 +347,14 @@ object MainForm: TMainForm
       OnClick = AlignButtonClick
     end
     object ToolButton20: TToolButton
-      Left = 596
+      Left = 612
       Top = 0
       Width = 8
       ImageIndex = 15
       Style = tbsDivider
     end
     object BulletsButton: TToolButton
-      Left = 604
+      Left = 620
       Top = 0
       Hint = 'Bullets|Enter bullet mode'
       ImageIndex = 14
@@ -477,7 +477,7 @@ object MainForm: TMainForm
     Left = 88
     Top = 68
     Bitmap = {
-      494C01010F001400140010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010F001400180010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000004000000001002000000000000040
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
